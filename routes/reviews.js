@@ -1,5 +1,6 @@
 const express = require('express');
-const router = express.Router();
+//merges params from app.js so that we can submit a review with 0. 
+const router = express.Router({mergeParams: true});
 
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
