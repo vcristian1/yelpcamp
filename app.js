@@ -49,7 +49,6 @@ app.get('/', (req, res) => {
     res.render('home')
 });
 
-
 app.post('/campgrounds/:id/reviews', validateReview, catchAsync(async (req, res) => {
     const campground = await Campground.findById(req.params.id);
     const review = new Review(req.body.review);
