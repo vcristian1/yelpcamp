@@ -6,6 +6,9 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
 
 const campgrounds = require('./routes/campgrounds');
 const reviews = require('./routes/reviews');
@@ -46,6 +49,17 @@ const sessionConfig = {
 
 app.use(session(sessionConfig))
 app.use(flash());
+
+app.use(passport.initialize());
+//must be added so application uses persistent login
+app.use(passport.session());
+//passport uses LocalStrategy, authetication method is used on user model,
+passport.use(new LocalStrategy(User.authenticate()));
+
+//tells passport how to serialize a user, serialization meaning how do we store a user in the session
+passport.serializeUser(User.serializeUser());
+//tells passport how to deserialize a user, deserialization meaning how do we remove a user in the session
+passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('success');
