@@ -3,13 +3,13 @@ const router = express.Router();
 const User = require('../models/user');
 const catchAsync = require('../utils/catchAsync');
 const passport = require('passport');
+
 router.get('/register', (req, res) => {
     res.render('users/register')
 })
 
 //strictly registers a user, doesnt log them in.
-//catchAsync is imported and added to the post route so it takes away any issues/errors from here
-//then pass them along to next
+//catchAsync is imported and added to the post route so it takes away any issues/errors
 router.post('/register', catchAsync (async (req, res) => {
     try {
         const {email, username, password} = req.body;
