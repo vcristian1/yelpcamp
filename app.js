@@ -63,6 +63,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    //logs in the console the session including the returnTo (see middleware.js)
+    console.log(req.session);
     res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -88,5 +90,5 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(3001, () => {
-    console.log('Serving on port 3000')
+    console.log('Serving on port 3001')
 })
