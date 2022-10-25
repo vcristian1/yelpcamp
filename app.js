@@ -1,5 +1,6 @@
 const dotenv = require("dotenv"); // Define the dotenv package
 dotenv.config(); // Call the config function
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
