@@ -1,5 +1,6 @@
-const dotenv = require("dotenv"); // Define the dotenv package
-dotenv.config(); // Call the config function
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
 
 const express = require('express');
 const path = require('path');
