@@ -19,9 +19,11 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 
+const Campground = require('./models/campground')
+
 const MongoStore = require("connect-mongo");
 
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -32,6 +34,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
+    console.log(process.env.DB_URL);
 });
 
 const app = express();
@@ -46,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize({
     replaceWith: '_'
 }))
+
 const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 const store = MongoStore.create({
@@ -75,7 +79,6 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(helmet());
-
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com",
@@ -121,7 +124,6 @@ app.use(
     })
 );
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -136,16 +138,19 @@ app.use((req, res, next) => {
     next();
 })
 
-
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes)
 app.use('/campgrounds/:id/reviews', reviewRoutes)
-
 
 app.get('/', (req, res) => {
     res.render('home')
 });
 
+app.get('/results', async(req, res) =>{
+    const {search_query} = req.query
+    const campgrounds = await Campground.find( {title: {$regex: search_query} })
+    res.render('search.ejs', {campgrounds, search_query})
+})
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+root {
+    font-family: 'Playfair Display';
+}
 #cluster-map {
     width: 100%;
     height: 450px;
@@ -7,4 +11,5 @@
     width: 100%;
     height: 300px;
 }
+
 
