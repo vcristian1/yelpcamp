@@ -34,7 +34,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
     console.log("Database connected");
-    console.log(process.env.DB_URL);
+    // console.log(process.env.DB_URL);
 });
 
 const app = express();
