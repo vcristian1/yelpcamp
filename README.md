@@ -54,8 +54,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Yelpcamp is a user review and recommendation application of the best campgrounds in the USA. The idea is based off of the app Yelp which is a company that publishes crowd-sourced reviews about businesses.
 
-<img src='assets/yelpcamp2.png' alt="Logo" width="100%" height="350px">
+<img src='assets/yelpcamp2.png' alt="Logo" width="100%" height="100%">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
