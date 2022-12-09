@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/vcristian1/yelpcamp">
-    <img src='assets/yelpcamp.png'alt="Logo" width="100%" height="350px">
+    <img src='assets/yelpcamp.png'alt="Logo" width="100%" height="100%">
   </a>
 
   <h3 align="center">YelpCamp</h3>
