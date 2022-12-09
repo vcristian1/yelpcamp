@@ -1,9 +1,9 @@
-<% layout('layout/boilerplate.ejs') %>
+<% layout('layouts/boilerplate.ejs') %>
 
 <h1 class="display-6 mb-4">Search Results For: <%= search_query %></h1>
 
 <form action="/results/?" class="d-flex mb-5">
-    <input class="form-control me-2" type="search" placeholder="Search Your Campgrounds ...." name="search_query" aria-label="Search" value="<%= search_query %>">
+    <input class="form-control me-2" type="search" placeholder="Search Your Campgrounds...." name="search_query" aria-label="Search" value="<%= search_query %>">
     <button class="btn btn-outline-dark" type="submit">Search</button>
     </form>
 
@@ -11,8 +11,8 @@
     <div class="card mb-3">
         <div class="row">
             <div class="col-md-4">
-                <% if (campground.image.length) { %>
-                    <img class="img-fluid" src="<%= campground.image[0].index %>" alt="">
+                <% if (campground.image) { %>
+                    <img class="img-fluid" src="<%= campground.image %>" alt="">
                     <% } else { %>
                         <img src="/img/Camping Vector Illustration.png" alt="">
                         <% } %>
