@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/vcristian1/yelpcamp">
+  <a target="_blank" rel="noreferrer" href="https://github.com/vcristian1/yelpcamp">
     <img src='assets/yelpcamp.png'alt="Logo" width="100%" height="100%">
   </a>
 
@@ -22,11 +22,11 @@
     <br />
     <br />
     <br />
-    <a href="https://hidden-tor-07938.herokuapp.com/">View Demo</a>
+    <a target="_blank" rel="noreferrer" href="https://hidden-tor-07938.herokuapp.com/">View Demo</a>
     ·
-    <a href="https://github.com/vcristian1/yelpcamp/issues">Report Bug</a>
+    <a target="_blank" rel="noreferrer" href="https://github.com/vcristian1/yelpcamp/issues">Report Bug</a>
     ·
-    <a href="https://github.com/vcristian1/yelpcamp/issues">Request Feature</a>
+    <a target="_blank" rel="noreferrer" href="https://github.com/vcristian1/yelpcamp/issues">Request Feature</a>
   </p>
 </div>
 
