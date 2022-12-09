@@ -22,7 +22,7 @@
     <br />
     <br />
     <br />
-    <a href="https://hidden-tor-07938.herokuapp.com/campgrounds">View Demo</a>
+    <a href="https://hidden-tor-07938.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/vcristian1/yelpcamp/issues">Report Bug</a>
     ·
